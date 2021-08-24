@@ -1,0 +1,31 @@
+﻿<html>
+    <style>
+        html {
+            background-color: skyblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+	<script language = "JavaScript" type = "text/JavaScript">
+		function rename(){
+            if (confirm("Начать заново?")){
+                alert("Не надоело?");
+            }
+            else{
+                alert("Ну и правильно!");
+            }
+        }
+		function youname(){
+			delete name;
+			let name = prompt("Введите имя", '');
+            document.writeln(name);
+		}
+    </script>
+	
+    <body>
+        <p> Ваше имя? </p>
+        <script>
+		youname();
+		rename();
+		</script>
+    </body>
+</html>
