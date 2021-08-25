@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+	<style>
+        html {
+            background-color: skyblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        #drag {
+            background-color: pink;
+            width: 200px;
+        }
+    </style>
+    <script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var s;
+			var k1,k2,k3,k4;
+			s=0;
+			k1=0;
+				k2=0;
+				k3=0;
+				k4=0;
+			$("#b").click(function(){
+				s+=1;
+				var que = document.getElementsByName('q');
+				for (var i = 0; i < que.length; i++) {
+        			if (que[i].checked) {
+            			if (i==0){
+							k1+=1
+							res1=k1*100/s;
+							alert(res1+"% людей тоже любят этот предмет!")
+							break
+						}
+						if (i==1){
+							k2+=1
+							res2=k2*100/s;
+							alert(res2+"% людей тоже любят этот предмет!")
+							break
+						}
+						if (i==2){
+							k3+=1
+							res3=k3*100/s;
+							alert(res3+"% людей тоже любят этот предмет!")
+							break
+						}
+						
+        		} 
+		}})})
+	</script>
+</head>
+<body>
+		<h2>Задание 6.</h2>
+        <form name="quiz" action="javascript:check();" class="quizform">
+            <div class="quizsection">
+                <h2>Ваш любимый предмет в школе?</h2>
+                <div class="answer">
+                    <input name="q" value="value1" id="value1" type="radio"/>Информатика
+                </div>
+                <div class="answer">
+                    <input name="q" value="value1" id="value2" type="radio" />Математика
+                </div>
+                <div class="answer">
+                    <input name="q" value="value2" id="value3" type="radio" />Литература
+                </div> 
+            </div> 
+            <br>
+		    <input type="button" value="Ответить" id="b">
+            </form>
+</body>
+</html>

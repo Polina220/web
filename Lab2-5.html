@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+	<style>
+        html {
+            background-color: skyblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        #drag {
+            background-color: pink;
+            width: 200px;
+        }
+    </style>
+    <script type="text/javascript">
+	$(document).ready(function(){
+		$('#drag').mousemove(function(event) {
+			$('#drag').draggable();
+		});
+	});
+    </script> 
+</head>
+<body>
+
+		<h2>Задание 5.</h2>
+    <div id="drag">
+        Блок перетаскивания
+    </div>
+</body>
+</html>
