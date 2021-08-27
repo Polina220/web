@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+	<script src="jquery-ui.js"></script>
+	<style>
+        html {
+            background-color: skyblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+	<h2>Лабораторная 4</h2>
+	<h3>Туры в Турцию</h3>
+	<span id="accordion">
+		<h2 class="to" style="width: 53%;">Imperial Sunland Resort & Spa</h2> <div style="width: 50%; height: 600px;">
+			<img src="https://cdn2.tu-tu.ru/image/tours_hotel_full/1/ff97627a079473190c028a2d60d22e0d/"  style=" width: 48%;">
+			<img src="https://cdn2.tu-tu.ru/image/tours_hotel_full/1/cde8982f9cd2c7956dba03bc1d363e06/" style=" width: 48%;" alt="">
+		  <p><span style="font-weight: 700;">Туры в отель Imperial Sunland Resort & Spa </span><br>
+			<p>Турция , Бельдиби (Кемер) </p><br>				
+			100 м до моря<br>
+			Галечный пляж<br>
+			Виза не нужна!<br>
+			<button class="button1">Забронировать</button></p>
+		</div>
+		<h2 class="to" style="width: 53%;">Sunmelia Beach Resort & Spa</h2> 
+		<div style="width: 50%;">
+			<img src="https://cdn2.tu-tu.ru/image/tours_hotel_full/1/290b0b050ecc056578777cc108f9638a/"  style=" width: 48%;">
+		  <img src="https://cdn2.tu-tu.ru/image/tours_hotel_full/1/e506bd61bcb398ac32c963c30aebe77c/"  style=" width: 48%;"><br>
+		  <p><span style="font-weight: 700;">Туры в отель Sunmelia Beach Resort & Spa</span><br>
+			<p>Турция , Кызылагач (Сиде) </p><br>			
+			1-я линия<br>
+			песчано-галечный пляж<br>
+			Бесплатный wi-fi в общественных местах и платный в номере <br>
+			
+			<button class="button2">Забронировать</button></p> </p>
+		</div>
+		</span>
+
+		<div class="dialog1" title="Забронировать тур в Imperial Sunland Resort & Spa">
+			<h3>Заполните информацию для брони</h3>
+			<form>
+			  Фамилия: <input type="text" size="50"><br><br>
+			  Имя: <input type="text" size="55"><br><br>
+			  Отчество: <input type="text" size="50"><br><br>
+			  Выбранный тур: <input type="text" class="tur" size="43"><br><br>
+			  Дата отъезда:  <input type="text"  class="date"><br><br>
+			  Количество дней на отдыхе: <input type="text" id="k1"><br><br>
+			  Серия и номер паспорта: <input type="text"><a href="#" title="Записывайте через пробел: сначала серия, потом номер"> ?</a><br><br>
+			  EMAIL: <input type="text"><br><br>
+			  Телефон для связи: <input type="text"><br><br><br>
+			  Стоимость тура составит: <span name="comment"  id="cost1">...</span> <input type="button" id="rasc1" value="Рассчитать"><br><br>
+			  <input type="button" class="send" value="Отправить">
+			</form>
+		  </div>
+		  <div class="dialog2" title="Забронировать тур в Sunmelia Beach Resort & Spa">
+			<h3>Заполните информацию для брони</h3>
+			<form>
+			  Фамилия: <input type="text" size="50"><br><br>
+			  Имя: <input type="text" size="55"><br><br>
+			  Отчество: <input type="text" size="50"><br><br>
+			  Выбранный тур: <input type="text" class="tur" size="43"><br><br>
+			  Дата отъезда:  <input type="text"  class="date"><br><br>
+			  Количество дней на отдыхе: <input type="text" id="k2"><br><br>
+			  Серия и номер паспорта: <input type="text"><a href="#" title="Записывайте через пробел: сначала серия, потом номер"> ?</a><br><br>
+			  EMAIL: <input type="text"><br><br>
+			  Телефон для связи: <input type="text"><br><br><br>
+			  Стоимость тура составит: <span name="comment"  id="cost2">...</span> <input type="button" id="rasc2" value="Рассчитать"><br><br>
+			  <input type="button" class="send" value="Отправить">
+			</form>
+		  </div>
+		  <div class="dia" title="Подтверждение">Подтверждаете бронирование?</div>
+		  <div class="yes" title="Бронь отправлена">Спасибо! <br>Оцените уровень сайта: <p style="display: inline;" class="sliderValue"></p> %
+			<br><br>
+			<div class="slider" style="width: 100%;"></div></div>
+		  <div class="no" title="Бронь не отправлена">Жаль!<br>Оцените уровень сайта:<p style="display: inline;" class="sliderValue"></p> %
+			<br><br>
+			<div class="slider" style="width: 100%;"></div></div>
+<script>
+	 $(function(){
+		$( ".yes" ).dialog({autoOpen: false, width: 300}); 
+		$( ".no" ).dialog({autoOpen: false, width: 300}); 
+		$('.dia').dialog({ autoOpen: false, width: 300, buttons:{
+	"Да": function(){ $( ".yes" ).dialog('open');   },
+	"Нет": function(){$( ".no" ).dialog('open');}
+}})
+$('.slider').slider({
+		min: 0,
+		max: 100,
+	change: function (event, ui){
+		var val = $('.slider').slider('value');
+		$('.sliderValue').html(val);
+	}
+});
+		$("#accordion" ).accordion({  collapsible: true }); 
+		$("td.td_top a").tooltip();
+	
+		$.datepicker.regional['ru'] = {
+	closeText: 'Закрыть',
+	prevText: 'Предыдущий',
+	nextText: 'Следующий',
+	currentText: 'Сегодня',
+	monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+	monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
+	dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+	dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+	dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+	weekHeader: 'Не',
+	dateFormat: 'dd.mm.yy',
+	firstDay: 1,
+	isRTL: false,
+	showMonthAfterYear: false,
+	yearSuffix: ''
+};
+	$.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
+	$(".date").datepicker();
+		$( ".dialog1" ).dialog({autoOpen: false, width: 500}); 
+		$( ".dialog2" ).dialog({autoOpen: false, width: 500});
+	$('#tabs').tabs();
+	$(".button1").click(function(){ 	
+		$( ".dialog1" ).dialog('open'); 
+	  })
+	  $(".button2").click(function(){ 
+		$( ".dialog2" ).dialog('open'); 
+	  })
+	  var tur = ["Imperial Sunland Resort & Spa Бельдиби (Кемер)", "Sunmelia Beach Resort & Spa Кызылагач (Сиде) "]; 
+  $(".tur" ).click(function(){
+	$(".tur").autocomplete({ source: tur });
+});
+$("#rasc1" ).click(function(){
+var k = document.getElementById("k1");
+var knew = k.value;
+var rach = 3500*knew
+document.getElementById('cost1').innerHTML = rach;
+})
+$("#rasc2" ).click(function(){
+var k2 = document.getElementById("k2");
+var knew2 = k2.value;
+var rach2 = 5000*knew2
+document.getElementById('cost2').innerHTML = rach2;
+})
+$("#rasc3" ).click(function(){
+var k3 = document.getElementById("k3");
+var knew3 = k3.value;
+var rach3 = 5200*knew3
+document.getElementById('cost3').innerHTML = rach3;
+})
+$(".send" ).click(function(){
+	$('.dia').dialog('open'); })
+	 })
+</script> 
+	</div>	
+</body>
+</html>
