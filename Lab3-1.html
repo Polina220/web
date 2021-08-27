@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+	<style>
+        html {
+            background-color: skyblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		let tek = 5;
+			function fff(str) {
+			if (str.length==0) {
+		document.getElementById("ffff").innerHTML="";
+		return;}
+	  if (window.XMLHttpRequest) {
+		xmlhttp=new XMLHttpRequest();
+	  } else {  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
+	  xmlhttp.onreadystatechange=function() {
+		  if (this.readyState==4 && this.status==200) {
+		  document.getElementById("ffff").innerHTML=this.responseText;
+		}
+	  }
+		xmlhttp.open("GET","polli.php?tek="+tek,true);
+		xmlhttp.send();
+		tek+=5;}
+			 </script>
+</head>
+<body>
+		<h2>Лента новостей</h2>
+
+		<h3>Полина Купцова</h3>
+		<p>Купила платье, смотрите, какое красивое!</p>
+		<img src="https://im0-tub-ru.yandex.net/i?id=80b2dd95c029c1d4b76aa9cb07e9038a-l&ref=rim&n=13&w=1080&h=1350" alt="" width="300px"><br><br>
+		<h3>Иван Иванов</h3>
+		<p>Море... так давно мечтал тут побывать!</p>
+		<img src="https://im0-tub-ru.yandex.net/i?id=b3a58ac5fa22c96789f3caf5206cb505&n=13&exp=1" alt="" width="300px"><br><br>
+		<h3>Мария Петрова</h3>
+		<p>Сходила на маник))</p>
+		<img src="https://im0-tub-ru.yandex.net/i?id=4c6c37626efedeb949ad31bafdb37b67-l&ref=rim&n=13&w=1080&h=1080" alt="" width="300px"><br>
+		<br>
+		<span id = "ffff"></span>
+		<form>
+			<input onclick = "fff(this.value)" type="button" value="Загрузить еще" id="b">
+		</form>
+</body>
+</html>
