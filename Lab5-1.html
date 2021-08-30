@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+	<script src="jquery-ui.js"></script> 
+	<script src="jquery.myPlugin.js"></script>
+	
+	<style>
+        html {
+            background-color: skyblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+		#mynum {
+			padding: 6px;
+			border-radius: 5px;
+			border-color: royalblue;
+		}
+		#b {
+			background-color: rosybrown;
+			color: purple;
+			padding: 6px;
+		}
+    </style>
+</head>
+<body>
+		<h2>Игра "Угадай число!"</h2>
+		<h3>Вам необходимо угадать число. загаданное компьютером от 0 до 10. У Вас всего 3 попытки!!! Удачи!</h3>
+		<input id="mynum" type="number" /><input type="button" id="b" onclick="guessNum();" value="Проверить">
+		<p id="out"></p>
+		<script>
+			var prNum, tempOut;
+prNum = Math.round(Math.random() * 10);
+var count = 3;
+function guessNum() {
+  var out = document.getElementById('out');
+  if (count == 0) {
+    out.innerHTML = 'Попытки кончились :('
+	out.style.color = 'black'
+    return;
+  }
+  var num = document.getElementById('mynum').value;
+
+  if (num == prNum) {
+    out.innerHTML = 'Вы угадали!';
+	out.style.color = 'green'
+  } else if (num > 10 || num < 0) {
+    out.innerHTML = 'Введите число от 0 до 10'
+  } else if (num > prNum) {
+    out.innerHTML = 'Вы ввели число больше!'
+	out.style.color = 'red'
+  } else if (num < prNum) {
+    out.innerHTML = 'Вы ввели число меньше!'
+	out.style.color = 'red'
+  }
+  count--;
+}
+		</script>
+	
+</body>
+</html>
